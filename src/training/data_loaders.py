@@ -73,6 +73,7 @@ def variable_batcher(batch):
       'labels': torch.tensor(labels,  dtype=torch.long),
       'logits': all_logits,
       'final_embeds': all_finals,
+      'text': all_texts,
     }
   return item
 
@@ -81,6 +82,7 @@ def distill_loader(text_dataset, tensor_file, mode, text_key, batch_size, shuffl
   return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, collate_fn=variable_batcher)
 
 
+'''
 dset = load_dataset("SetFit/sst5")
 #test_loader = distill_loader(dset["test"], None, mode="test", text_key="text", batch_size=4) 
 fname =  "../llama-1b/sst-5/embeddings-llama1B-sst5.jsonl"
@@ -90,3 +92,4 @@ for batch in train_loader:
     print(batch)
     break
 
+'''
