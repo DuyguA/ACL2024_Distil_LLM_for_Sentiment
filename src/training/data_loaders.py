@@ -51,7 +51,7 @@ tokenizer.padding_side = "right"
 
 def variable_batcher(batch):
   all_texts = [item["text"] for item in batch]
-  encodings = tokenizer(all_texts, padding=True, truncation=True, return_tensors="pt")
+  encodings = tokenizer(all_texts, padding="max_length", truncation=True, return_tensors="pt", max_length=128)
   input_ids = encodings['input_ids']
   attention_mask = encodings['attention_mask']
 
