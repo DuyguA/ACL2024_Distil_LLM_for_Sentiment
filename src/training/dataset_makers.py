@@ -1,4 +1,5 @@
-from datasets import load_dataset, DatasetDict
+from datasets import load_dataset, DatasetDict, Dataset
+import pandas as pd
 
 def make_dataset(dname):
   if dname == "sst-2":
@@ -135,9 +136,9 @@ def prep_stance():
   train_data = load_stance("../data/stance/train.csv")
   test_data = load_stance("../data/stance/test.csv")
   dataset = DatasetDict({
-    "train": train_dataset,
-    "test": test_dataset,
-    "validation": test_dataset
+    "train": train_data,
+    "test": test_data,
+    "validation": test_data
   })
   return dataset
 
