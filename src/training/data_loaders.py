@@ -41,10 +41,8 @@ class DistillDataset(Dataset):
     def __len__(self):
         return len(self.dataset)
 
-model_name = "meta-llama/Llama-3.2-1B-Instruct"
+model_name = "roberta-base"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-tokenizer.pad_token = tokenizer.eos_token
-tokenizer.padding_side = "right"
 
 
 
